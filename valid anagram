@@ -1,0 +1,39 @@
+/*Given two strings s and t, return true if t is an 
+anagram
+ of s, and false otherwise.
+Example 1:
+Input: s = "anagram", t = "nagaram"
+Output: true
+Example 2:
+Input: s = "rat", t = "car"
+Output: false
+Constraints:
+1 <= s.length, t.length <= 5 * 104
+s and t consist of lowercase English letters.
+*/
+
+/****solution*/////
+
+
+
+
+
+var isAnagram = function(s, t) {
+    if(s.length !== t.length){
+        return false;
+    }
+    
+    const alpha = new Array(26).fill(0);
+
+    for(i=0; i<s.length; i++){
+        alpha[s.charCodeAt(i) - 'a'.charCodeAt(0)]++;
+        alpha[t.charCodeAt(i) - 'a'.charCodeAt(0)]--;
+    }
+
+    if(alpha.every(value => value === 0)){
+        return true;
+    }
+    return false;
+
+
+};
